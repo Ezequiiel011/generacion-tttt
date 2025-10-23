@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puedo Jubilarme</title>
+</head>
+<body style="font-family: Arial; background-color: #f4f4f4; text-align: center;">
+    <h1>¿Puedo Jubilarme?</h1>
+
+    <p>Completá los datos para saber si ya podés jubilarte </p>
+
+    <form id="formJubilacion">
+       INDEX.HTML:
+
+<label>Edad: </label>
+        <input type="number" id="edad" required><br><br>
+
+        <label>Años de aportes: </label>
+        <input type="number" id="aportes" required><br><br>
+
+        <label>Género: </label>
+        <select id="genero">
+            <option value="mujer">Mujer</option>
+            <option value="hombre">Hombre</option>
+        </select><br><br>
+
+        <button type="button" onclick="evaluar()">Evaluar</button>
+    </form>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        function evaluar() {
+            const edad = parseInt(document.getElementById("edad").value);
+            const aportes = parseInt(document.getElementById("aportes").value);
+            const genero = document.getElementById("genero").value;
+
+            let puede = false;
+
+            if (genero === "mujer" && edad >= 60 && aportes >= 30) {
+                puede = true;
+            } else if (genero === "hombre" && edad >= 65 && aportes >= 30) {
+                puede = true;
+            }
+
+            document.getElementById("resultado").textContent = puede
+                ? " ¡Podés jubilarte!"
+                : " Aún no cumplís los requisitos.";
+        }
+    </script>
+</body>
+</html>
